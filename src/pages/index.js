@@ -9,8 +9,6 @@ import ReactHtmlParser from 'react-html-parser';
 
 import { fetchPosts, transform } from '../services/post.js'
 
-import * as vidUrl from '../assets/spotify.mp4'
-
 const styles = theme => ({
   root: {
     textAlign: 'center',
