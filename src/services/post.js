@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Typography from 'material-ui/Typography';
 import { convertNodeToElement } from 'react-html-parser';
 
 const apiBaseUrl = 'https://public-api.wordpress.com/rest/v1.1/sites/dennisnyabuti.wordpress.com/posts/';

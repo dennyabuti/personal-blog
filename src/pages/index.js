@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
+import Card, { CardContent } from 'material-ui/Card';
+import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 import withRoot from '../with-root';
 import ReactHtmlParser from 'react-html-parser';
@@ -11,19 +13,22 @@ import { fetchPosts, transform } from '../services/post.js'
 
 const styles = theme => ({
   root: {
-    textAlign: 'center',
-    paddingTop: theme.spacing.unit * 20,
+    // textAlign: 'center',
+    // paddingTop: theme.spacing.unit * 20,
   },
+  flex: {
+    flex: 1
+  }
 });
 
-const vid = {
-  position: 'fixed',
-  minWidth: '100%',
-  minHeight: '100%',
-  zIndex: '100',
-  opacity: .3,
+// const vid = {
+//   position: 'fixed',
+//   minWidth: '100%',
+//   minHeight: '100%',
+//   zIndex: '100',
+//   opacity: .3,
 
-};
+// };
 const content = {
   position: 'block',
   width: '70%',
@@ -56,12 +61,24 @@ class Index extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { open, posts } = this.state;
+    const { posts } = this.state;
 
     // const vidUrl = 'http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4';
 
     return (
       <div className={classes.root}>
+        <div style={{ paddingBottom: '10px' }}>
+          <AppBar position="static" color="default">
+            <Toolbar>
+              <Typography variant="title" color="inherit" className={classes.flex}>
+                Dennis Nyabuti
+              </Typography>
+              <Button color="inherit">Home</Button>
+              <Button color="inherit">Post</Button>
+              <Button color="inherit">About</Button>
+            </Toolbar>
+          </AppBar>
+        </div>
         {/* <div style={vid}>
           <video id="background-video" loop autoPlay>
             <source src={vidUrl} type="video/mp4" />
