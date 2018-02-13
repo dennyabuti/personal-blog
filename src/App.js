@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
 } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
@@ -11,7 +10,6 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 import withRoot from './with-root';
-import ReactHtmlParser from 'react-html-parser';
 
 import Home from './pages/home';
 import Posts from './pages/posts';
@@ -26,19 +24,6 @@ const styles = theme => ({
     flex: 1
   }
 });
-
-const content = {
-  position: 'block',
-  width: '70%',
-  margin: '0 auto',
-  zIndex: '100',
-  // background: 'rgba(0, 0, 0, 0.5)',
-};
-
-// const options = {
-//   decodeEntities: true,
-//   transform
-// };
 
 class App extends Component {
   state = {

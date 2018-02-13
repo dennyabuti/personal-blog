@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import AppBar from 'material-ui/AppBar';
+// import PropTypes from 'prop-types';
 import Typography from 'material-ui/Typography';
 import Card, { CardContent } from 'material-ui/Card';
 // import { withStyles } from 'material-ui/styles';
@@ -77,8 +76,8 @@ class Posts extends Component {
   }
 }
 
-Posts.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// Posts.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
 export default Posts;
