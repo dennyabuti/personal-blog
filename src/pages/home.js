@@ -41,7 +41,7 @@ class Home extends Component {
         </div>
         <br />
         <div className={classes.row}>
-          <Typography variant="display2" gutterBottom component="h1">Dennis M. Nyabuti</Typography>
+          <Typography variant="display1" gutterBottom component="h2">Dennis M. Nyabuti</Typography>
         </div>
       </div>
     );
