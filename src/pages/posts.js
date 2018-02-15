@@ -7,15 +7,15 @@ import ReactHtmlParser from 'react-html-parser';
 
 import { fetchPosts, transform } from '../services/post.js'
 
-const styles = theme => ({
-  root: {
-    // textAlign: 'center',
-    // paddingTop: theme.spacing.unit * 20,
-  },
-  flex: {
-    flex: 1
-  }
-});
+// const styles = theme => ({
+//   root: {
+//     // textAlign: 'center',
+//     // paddingTop: theme.spacing.unit * 20,
+//   },
+//   flex: {
+//     flex: 1
+//   }
+// });
 
 const content = {
   position: 'block',

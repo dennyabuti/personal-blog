@@ -42,7 +42,7 @@ class App extends Component {
             <div>
               <AppBar position="static" color="default">
                 <Toolbar>
-                  <Typography variant="title" color="inherit" className={classes.flex}>
+                  <Typography variant="title" className={classes.flex}>
                     Dennis Nyabuti
               </Typography>
                   <Button href="/" color="inherit">Home</Button>
