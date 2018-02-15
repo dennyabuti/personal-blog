@@ -4,10 +4,14 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+<<<<<<< HEAD
     "dotenv": "^5.0.0",
     "font-awesome": "^4.7.0",
     "material-ui": "^1.0.0-beta.31",
     "material-ui-icons": "^1.0.0-beta.17",
+=======
+    "material-ui": "^1.0.0-beta.33",
+>>>>>>> 869fb8582b52a4e0db33e3d252140bb7fc4564c9
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-fontawesome": "^1.6.1",
