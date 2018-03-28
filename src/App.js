@@ -11,6 +11,8 @@ import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 import withRoot from './with-root';
 
+import withTracker from './components/with-tracker';
+
 import Home from './pages/home';
 import Posts from './pages/posts';
 
@@ -50,8 +52,8 @@ class App extends Component {
                   <Button href="/about" color="inherit">About</Button>
                 </Toolbar>
               </AppBar>
-              <Route exact  path="/" component={Home} />
-              <Route path="/posts" component={Posts} />
+              <Route exact  path="/" component={withTracker(Home)} />
+              <Route path="/posts" component={withTracker(Posts)} />
             </div>
           </Router>
         </div>

@@ -41,14 +41,14 @@ class Posts extends Component {
       if (err) {
         this.setState({ posts: [] });
       } else {
-        console.log(data.posts);
+        // console.log(data.posts);
         this.setState({ posts: data.posts });
       }
     });
   }
 
   render() {
-    const { classes } = this.props;
+    // const { classes } = this.props;
     const { posts } = this.state;
 
     // const vidUrl = 'http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4';
