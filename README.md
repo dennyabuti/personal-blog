@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Uses wordpress public rest api [https://public-api.wordpress.com/rest](https://public-api.wordpress.com/rest) as a backend service.
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Uses the [wordpress public rest api](https://public-api.wordpress.com/rest/v1.1/sites/dennisnyabuti.wordpress.com/posts/) as a backend service.
 ## Available Scripts
 
 In the project directory, you can run:
