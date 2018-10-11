@@ -7,7 +7,8 @@ import { FormGroup, FormControl } from 'material-ui/Form';
 import IconButton from 'material-ui/IconButton';
 import FontAwesome from 'react-fontawesome';
 
-import * as pic from '../assets/avator.jpg'
+import { REACT_APP_SOCIAL_FACEBOOK, REACT_APP_SOCIAL_GITHUB, REACT_APP_SOCIAL_LINKEDIN, REACT_APP_SOCIAL_TWITTER} from '../env';
+import * as pic from '../assets/avator.jpg';
 
 const styles = theme => ({
   root: {
@@ -52,7 +53,7 @@ class Home extends Component {
         <div className={classes.row}>
           <FormGroup row>
             <FormControl>
-              <IconButton href="https://twitter.com/DennisNyabuti">
+              <IconButton href={REACT_APP_SOCIAL_TWITTER}>
                 <FontAwesome
                   className={classes.social}
                   name="twitter"
@@ -61,7 +62,7 @@ class Home extends Component {
               </IconButton>
             </FormControl>
             <FormControl>
-              <IconButton href="https://www.facebook.com/dmnyabuti">
+              <IconButton href={REACT_APP_SOCIAL_FACEBOOK}>
                 <FontAwesome
                   className={classes.social}
                   name="facebook"
@@ -70,7 +71,7 @@ class Home extends Component {
               </IconButton>
             </FormControl>
             <FormControl>
-              <IconButton href="https://www.linkedin.com/in/dmnyabuti/">
+              <IconButton href={REACT_APP_SOCIAL_LINKEDIN}>
                 <FontAwesome
                   className={classes.social}
                   name="linkedin"
@@ -79,7 +80,7 @@ class Home extends Component {
               </IconButton>
             </FormControl>
             <FormControl>
-              <IconButton href="https://github.com/dennyabuti">
+              <IconButton href={REACT_APP_SOCIAL_GITHUB}>
                 <FontAwesome
                   className={classes.social}
                   name="github"

@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 import { FETCH_POSTS } from '../constants/post';
-
-const apiBaseUrl = `https://public-api.wordpress.com/rest/v1.1/sites/dennisnyabuti.wordpress.com/posts/`;
+import { REACT_APP_WORD_PRESS_API } from '../env';
 
 export const fetchPosts = (posts) => {
   return {
@@ -13,7 +12,7 @@ export const fetchPosts = (posts) => {
 
 export const requestPosts = () => {
   return (dispatch) => {
-    axios.get(apiBaseUrl)
+    axios.get(REACT_APP_WORD_PRESS_API)
       .then(({ data }) => dispatch(fetchPosts(data.posts)))
       .catch(err => {
         throw(err);
