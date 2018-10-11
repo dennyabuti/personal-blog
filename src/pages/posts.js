@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Typography from 'material-ui/Typography';
 import Card, { CardContent } from 'material-ui/Card';
+
 // import { withStyles } from 'material-ui/styles';
 import ReactHtmlParser from 'react-html-parser';
 
-import { fetchPosts, transform } from '../services/post.js'
+import { requestPosts } from '../actions/post';
+import { transform } from '../services/post.js'
 
 // const styles = theme => ({
 //   root: {
@@ -30,29 +33,49 @@ const options = {
   transform
 };
 
+function mapStateToProps(state) {
+  return {
+    posts: state.posts,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchPosts: () => dispatch(requestPosts()),
+  }
+}
+
 class Posts extends Component {
   state = {
     open: false,
-    posts: []
+    // posts: []
   };
 
   componentWillMount() {
-    fetchPosts((err, data) => {
-      if (err) {
-        this.setState({ posts: [] });
-      } else {
-        // console.log(data.posts);
-        this.setState({ posts: data.posts });
-      }
-    });
+    this.props.fetchPosts();
+    // fetchPosts((err, data) => {
+    //   if (err) {
+    //     this.setState({ posts: [] });
+    //   } else {
+    //     // console.log(data.posts);
+    //     this.setState({ posts: data.posts });
+    //   }
+    // });
   }
 
   render() {
-    // const { classes } = this.props;
-    const { posts } = this.state;
-
-    // const vidUrl = 'http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4';
-
+    const { posts } = this.props;
+    if (posts.length === 0) {
+      return (
+        <div>
+          <Card>
+            < Typography variant = "body1" >
+              No Posts to show.
+            </ Typography>
+          </Card>
+        </div>
+      );
+    }
     return (
       <div style={content}>
         <br/>
@@ -62,9 +85,9 @@ class Posts extends Component {
               <Card>
                 <CardContent>
                   <Typography variant="headline" component="h2">{post.title}</Typography>
-                  <Typography variant="body1">
-                    <div> {ReactHtmlParser(post.content, options)} </div>
-                  </Typography>
+                  {/* <Typography variant="body1"> */}
+                    {ReactHtmlParser(post.content, options)}
+                  {/* </Typography> */}
                 </CardContent>
               </Card>
               <br />
@@ -76,8 +99,12 @@ class Posts extends Component {
   }
 }
 
-// Posts.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
+Posts.propTypes = {
+  posts: PropTypes.array.isRequired,
+  fetchPosts: PropTypes.func.isRequired,
+};
 
-export default Posts;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Posts);

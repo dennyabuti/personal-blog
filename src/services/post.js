@@ -2,8 +2,7 @@ import axios from 'axios';
 import { convertNodeToElement } from 'react-html-parser';
 
 const apiBaseUrl = `https://public-api.wordpress.com/rest/v1.1/sites/dennisnyabuti.wordpress.com/posts/`;
-console.log(process.env.REACT_WORDPRESS_PUBLIC_API);
-// const apiBaseUrl = 'https://public-api.wordpress.com/rest/v1.1/sites/agelgel84.wordpress.com/posts/';
+// console.log(process.env.REACT_WORDPRESS_PUBLIC_API);
 export const fetchPosts = (callback) => {
   axios.get(apiBaseUrl)
     .then(({ data }) => callback(null, data))
