@@ -12,10 +12,10 @@ module.exports = (wallaby) => {
   return {
     files: [
       'src/**/*.+(js|jsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)',
-      '!test/**/*.spec.js?(x)'
+      '!src/test/**/*.spec.js?(x)'
     ],
 
-    tests: ['test/**/*.spec.js?(x)'],
+    tests: ['src/test/**/*.spec.js?(x)'],
 
     env: {
       type: 'node',

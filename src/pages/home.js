@@ -8,7 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import FontAwesome from 'react-fontawesome';
 
 import { REACT_APP_SOCIAL_FACEBOOK, REACT_APP_SOCIAL_GITHUB, REACT_APP_SOCIAL_LINKEDIN, REACT_APP_SOCIAL_TWITTER} from '../env';
-import * as pic from '../assets/avator.jpg';
+// import * as pic from '../assets/avator.jpg';
 
 const styles = theme => ({
   root: {
@@ -42,7 +42,7 @@ class Home extends Component {
         <div className={classes.row}>
           <Avatar
             alt="Dennis Nyabuti"
-            src={pic}
+            src={require('../assets/avator.jpg')}
             className={classes.avatar}
           />
         </div>
