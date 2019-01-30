@@ -1,0 +1,21 @@
+
+.root {
+    text-align: center;
+    padding-top: 20;
+
+    .row {
+        display: flex;
+        justify-content: center;
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+        }
+
+        .social {
+            padding-right: 5px;
+            flex: 1;
+        }
+    }
+
+}

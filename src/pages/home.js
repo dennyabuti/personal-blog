@@ -1,60 +1,38 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
+// import { withStyles } from 'material-ui/styles';
 import Avatar from 'material-ui/Avatar';
 import Typography from 'material-ui/Typography';
 import { FormGroup, FormControl } from 'material-ui/Form';
 import IconButton from 'material-ui/IconButton';
 import FontAwesome from 'react-fontawesome';
+import './home.scss';
+import * as pic from '../assets/avator.jpg';
 
-import * as pic from '../assets/avator.jpg'
-
-const styles = theme => ({
-  root: {
-    textAlign: 'center',
-    paddingTop: theme.spacing.unit * 20,
-  },
-  row: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  avatar: {
-    width: 150,
-    height: 150,
-    // margin: 'auto',
-  },
-  social: {
-    paddingRight: '5px',
-  },
-  flex: {
-    flex: 1
-  }
-});
 class Home extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+  }
   render() {
-    const { classes } = this.props;
     return (
-      <div className={classes.root}>
-        <div className={classes.row}>
+      <div className="root">
+        <div className="row">
           <Avatar
             alt="Dennis Nyabuti"
             src={pic}
-            className={classes.avatar}
+            className="avatar"
           />
         </div>
         <br />
-        <div className={classes.row}>
+        <div className="row">
           <Typography variant="display1" gutterBottom component="h2">Dennis M. Nyabuti</Typography>
         </div>
-        <div className={classes.row}>
+        <div className="row">
           <FormGroup row>
             <FormControl>
               <IconButton href="https://twitter.com/DennisNyabuti">
                 <FontAwesome
-                  className={classes.social}
+                  className="social"
                   name="twitter"
                   size="2x"
                 />
@@ -63,7 +41,7 @@ class Home extends Component {
             <FormControl>
               <IconButton href="https://www.facebook.com/dmnyabuti">
                 <FontAwesome
-                  className={classes.social}
+                  className="social"
                   name="facebook"
                   size="2x"
                 />
@@ -72,7 +50,7 @@ class Home extends Component {
             <FormControl>
               <IconButton href="https://www.linkedin.com/in/dmnyabuti/">
                 <FontAwesome
-                  className={classes.social}
+                  className="social"
                   name="linkedin"
                   size="2x"
                 />
@@ -81,7 +59,7 @@ class Home extends Component {
             <FormControl>
               <IconButton href="https://github.com/dennyabuti">
                 <FontAwesome
-                  className={classes.social}
+                  className="social"
                   name="github"
                   size="2x"
                 />
@@ -95,7 +73,7 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  classes: PropTypes.object.isRequired,
+  // classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Home);
+export default Home;
