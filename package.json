@@ -1,6 +1,9 @@
 {
   "name": "dennis-blog",
   "version": "0.1.0",
+  "engines": {
+    "node": ">=8"
+  },
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
