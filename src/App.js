@@ -12,9 +12,11 @@ import { withStyles } from 'material-ui/styles';
 import withRoot from './with-root';
 
 import withTracker from './components/with-tracker';
+import { REACT_APP_OWNER } from './env';
 
 import Home from './pages/home';
 import Posts from './pages/posts';
+import './App.scss';
 
 
 const styles = theme => ({
@@ -45,7 +47,7 @@ class App extends Component {
               <AppBar position="static" color="default">
                 <Toolbar>
                   <Typography variant="title" className={classes.flex}>
-                    Dennis Nyabuti
+                    { REACT_APP_OWNER }
               </Typography>
                   <Button href="/" color="inherit">Home</Button>
                   <Button href="/posts" color="inherit">Post</Button>
