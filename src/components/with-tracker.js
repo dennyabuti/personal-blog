@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import GoogleAnalytics from 'react-ga';
 
 GoogleAnalytics.initialize('UA-116570299-1', {
@@ -14,27 +15,15 @@ const withTracker = (WrappedComponent, options = {}) => {
     GoogleAnalytics.pageview(page);
   };
 
-  const HOC = class extends Component {
-    componentDidMount() {
-      const page = this.props.location.pathname;
-      trackPage(page);
-    }
+  return function TrackedComponent(props) {
+    const location = useLocation();
 
-    componentWillReceiveProps(nextProps) {
-      const currentPage = this.props.location.pathname;
-      const nextPage = nextProps.location.pathname;
+    useEffect(() => {
+      trackPage(location.pathname);
+    }, [location.pathname]);
 
-      if (currentPage !== nextPage) {
-        trackPage(nextPage);
-      }
-    }
-
-    render() {
-      return <WrappedComponent {...this.props} />;
-    }
+    return <WrappedComponent {...props} />;
   };
-
-  return HOC;
 };
 
 export default withTracker;

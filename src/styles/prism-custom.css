@@ -1,0 +1,86 @@
+/* Override Prism.js theme for better integration with our dark mode */
+
+/* Toolbar styling */
+div.code-toolbar > .toolbar {
+  opacity: 1;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > a:hover {
+  background-color: hsl(var(--primary) / 0.9);
+}
+
+/* Code block container */
+pre[class*="language-"] {
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  font-size: 0.875rem;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 0.875rem;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  background-color: hsl(var(--muted));
+  color: hsl(var(--foreground));
+}
+
+/* Line numbers */
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid hsl(var(--border));
+}
+
+.line-numbers-rows > span:before {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Dark mode adjustments */
+.dark pre[class*="language-"] {
+  background: hsl(var(--muted));
+}
+
+.dark :not(pre) > code[class*="language-"] {
+  background: hsl(var(--muted));
+}
+
+/* Light mode - use lighter background */
+pre[class*="language-"] {
+  background: hsl(var(--muted) / 0.5);
+}
+
+/* Copy button styling */
+.copy-to-clipboard-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+div.code-toolbar {
+  position: relative;
+}
+
+div.code-toolbar:hover .copy-to-clipboard-button {
+  opacity: 1;
+}
+
