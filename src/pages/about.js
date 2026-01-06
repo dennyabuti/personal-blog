@@ -219,12 +219,6 @@ function About() {
           </CardHeader>
           <CardContent className="space-y-2">
             <p className="flex items-center gap-2 text-sm">
-              <span className="font-medium">Email:</span>
-              <a href="mailto:dennis.mochama@gmail.com" className="text-primary hover:underline">
-                dennis.mochama@gmail.com
-              </a>
-            </p>
-            <p className="flex items-center gap-2 text-sm">
               <span className="font-medium">LinkedIn:</span>
               <a href="https://www.linkedin.com/in/dmnyabuti" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                 linkedin.com/in/dmnyabuti
