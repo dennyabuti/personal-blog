@@ -6,7 +6,7 @@ import {
   Link
 } from 'react-router-dom'
 import { Moon, Sun } from 'lucide-react';
-import BuniChatWidget from './components/BuniChatWidget';
+import BuniChatWidget from './components/BuniChat';
 import { Button } from './components/ui/button';
 import { ScrollToTop } from './components/ScrollToTop';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
@@ -74,7 +74,6 @@ function AppContent() {
           </Routes>
         </main>
         <ScrollToTop />
-        <BuniChatWidget />
       </Router>
     </div>
   );
@@ -84,6 +83,7 @@ function App() {
   return (
     <ThemeProvider>
       <AppContent />
+      <BuniChatWidget />
     </ThemeProvider>
   );
 }

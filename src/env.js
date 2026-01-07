@@ -1,8 +1,6 @@
-export const REACT_APP_WORD_PRESS_API= `https://public-api.wordpress.com/rest/v1.1/sites/dennisnyabuti.wordpress.com/posts/`;
-export const REACT_APP_OWNER = `Dennis Nyabuti`;
-export const REACT_APP_SOCIAL_FACEBOOK = `https://www.facebook.com/dmnyabuti`;
-export const REACT_APP_SOCIAL_GITHUB = `https://github.com/dennyabuti`;
-export const REACT_APP_SOCIAL_LINKEDIN = `https://www.linkedin.com/in/dmnyabuti/`;
-export const REACT_APP_SOCIAL_TWITTER = `https://twitter.com/DennisNyabuti`;
-
-
+export const REACT_APP_WORD_PRESS_API = process.env.REACT_APP_WORD_PRESS_API;
+export const REACT_APP_OWNER = process.env.REACT_APP_OWNER;
+export const REACT_APP_SOCIAL_FACEBOOK = process.env.REACT_APP_SOCIAL_FACEBOOK;
+export const REACT_APP_SOCIAL_GITHUB = process.env.REACT_APP_SOCIAL_GITHUB;
+export const REACT_APP_SOCIAL_LINKEDIN = process.env.REACT_APP_SOCIAL_LINKEDIN;
+export const REACT_APP_SOCIAL_TWITTER = process.env.REACT_APP_SOCIAL_TWITTER;
