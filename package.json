@@ -6,7 +6,7 @@
   },
   "private": true,
   "dependencies": {
-    "@buni.ai/chatbot-react": "^1.0.16",
+    "@buni.ai/chatbot-react": "^1.0.17",
     "axios": "^0.17.1",
     "buffer": "^6.0.3",
     "class-variance-authority": "^0.7.1",
