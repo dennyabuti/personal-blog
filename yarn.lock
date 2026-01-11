@@ -1123,17 +1123,17 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@buni.ai/chatbot-core@^1.0.15":
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/@buni.ai/chatbot-core/-/chatbot-core-1.0.15.tgz#c6f489c11b7880c7e6ddbfc8653c421e18d43cdd"
-  integrity sha512-PX1emTdFpzD3/pwqpZcN4NX+XRSuzXOMAZR8liW/F5OT4QZB3K+KbInpFdHJl646BEqarjTjFGihQn6UAT21vg==
+"@buni.ai/chatbot-core@^1.0.16":
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@buni.ai/chatbot-core/-/chatbot-core-1.0.16.tgz#690691cacd536f90d05a416fad016ee2486490a4"
+  integrity sha512-u2gVRUn8MXb3MVbcqXeCXSSt1X5KrStTVcUuNasYerBncFsVDONAVOdnSrmbSJAZdTWtohxWzFU9mSXevgqZdQ==
 
-"@buni.ai/chatbot-react@^1.0.17":
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/@buni.ai/chatbot-react/-/chatbot-react-1.0.17.tgz#6d203d66df61e8cbe59738a502f3dc378b8acb0c"
-  integrity sha512-C8MjD5yxW5ekvJlUtFzkELHTaMsBDD6Xe7hyfqLaCy/r7wgL61QU/cl53UKXrmb03DH7Zcb+xAODmOrgu9PWPA==
+"@buni.ai/chatbot-react@^1.0.18":
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/@buni.ai/chatbot-react/-/chatbot-react-1.0.18.tgz#a2fe0484ca30d3992356d0155a1056d06e700a5e"
+  integrity sha512-jyoxNkNkD5jV2zRXlHp0oPyVIKGnxQDaRZizagmwa2trQJ3gwkZ19V41EvU3Js8Z1+6fkoZkmQ0/T/grk4U/QA==
   dependencies:
-    "@buni.ai/chatbot-core" "^1.0.15"
+    "@buni.ai/chatbot-core" "^1.0.16"
 
 "@csstools/normalize.css@*":
   version "12.1.1"
