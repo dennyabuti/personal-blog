@@ -1,14 +1,15 @@
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { MessageCircle } from 'lucide-react';
 import { useBuniChat, BuniChatWidget } from '@buni.ai/chatbot-react';
+import { useTheme } from '../contexts/ThemeContext';
 
-const BuniChatWidgetWrapper = () => {
-    const token = process.env.REACT_APP_BUNI_CHAT_TOKEN || '';
+const BuniChatWidgetInstance = ({ chatTheme, onAutoOpenHandled, onOpenStateChange, shouldAutoOpen, token }) => {
+    const hasOpenedRef = useRef(false);
 
     const options = useMemo(() => ({
         token,
         config: {
-            theme: 'light',
+            theme: chatTheme,
             primaryColor: '#3b82f6',
             position: 'bottom-right',
             width: 370,
@@ -19,10 +20,21 @@ const BuniChatWidgetWrapper = () => {
             showTriggerText: false,
             hideDefaultTrigger: true,
         }
-    }), [token]);
+    }), [chatTheme, token]);
 
     const { isLoaded, isOpen, open, hide } = useBuniChat(options);
-    const hasOpenedRef = useRef(false);
+    const isButtonVisible = !isOpen;
+
+    useEffect(() => {
+        onOpenStateChange(isOpen);
+    }, [isOpen, onOpenStateChange]);
+
+    useEffect(() => {
+        if (isLoaded && shouldAutoOpen) {
+            open();
+            onAutoOpenHandled();
+        }
+    }, [isLoaded, onAutoOpenHandled, open, shouldAutoOpen]);
 
     useEffect(() => {
         if (isOpen) {
@@ -35,14 +47,10 @@ const BuniChatWidgetWrapper = () => {
         }
     }, [hide, isLoaded, isOpen]);
 
-    if (!token) {
-        return null;
-    }
-
     return (
         <>
             <BuniChatWidget />
-            {!isOpen && (
+            {isButtonVisible && (
                 <button
                     type="button"
                     onClick={open}
@@ -71,6 +79,40 @@ const BuniChatWidgetWrapper = () => {
                 </button>
             )}
         </>
+    );
+};
+
+const BuniChatWidgetWrapper = () => {
+    const token = process.env.REACT_APP_BUNI_CHAT_TOKEN || '';
+    const { theme } = useTheme();
+    const chatTheme = theme === 'dark' ? 'dark' : 'light';
+    const previousThemeRef = useRef(chatTheme);
+    const [isWidgetOpen, setIsWidgetOpen] = useState(false);
+    const [shouldAutoOpen, setShouldAutoOpen] = useState(false);
+
+    useEffect(() => {
+        if (previousThemeRef.current !== chatTheme) {
+            if (isWidgetOpen) {
+                setShouldAutoOpen(true);
+            }
+
+            previousThemeRef.current = chatTheme;
+        }
+    }, [chatTheme, isWidgetOpen]);
+
+    if (!token) {
+        return null;
+    }
+
+    return (
+        <BuniChatWidgetInstance
+            key={chatTheme}
+            chatTheme={chatTheme}
+            onAutoOpenHandled={() => setShouldAutoOpen(false)}
+            onOpenStateChange={setIsWidgetOpen}
+            shouldAutoOpen={shouldAutoOpen}
+            token={token}
+        />
     );
 };
 
