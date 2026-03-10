@@ -2,11 +2,15 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Github, Linkedin, Facebook, Twitter } from 'lucide-react';
 import { PageTransition, FadeIn } from '../components/PageTransition';
+import { useTheme } from '../contexts/ThemeContext';
 
 import avatarImage from '../assets/avator_1.jpeg';
 import { REACT_APP_SOCIAL_FACEBOOK, REACT_APP_SOCIAL_GITHUB, REACT_APP_SOCIAL_LINKEDIN, REACT_APP_SOCIAL_TWITTER} from '../env';
 
 function Home() {
+  const { theme } = useTheme();
+  const peerlistTheme = theme === 'dark' ? 'dark' : 'light';
+
   return (
     <>
       <Helmet>
@@ -96,6 +100,27 @@ function Home() {
             </a>
           )}
         </div>
+        </FadeIn>
+
+        <FadeIn delay={0.8}>
+          <div className="flex flex-col items-center gap-3 pt-2">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+              Featured On Peerlist
+            </p>
+            <a
+              href="https://peerlist.io/nyabuti/project/buniai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-2xl ring-1 ring-slate-200/80 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md dark:ring-slate-700/80"
+            >
+              <img
+                src={`https://peerlist.io/api/v1/projects/embed/PRJH7B8BEER7A7J76CR8ADLDP69DKB?showUpvote=true&theme=${peerlistTheme}`}
+                alt="BuniAI on Peerlist"
+                className="h-[72px] w-auto rounded-2xl"
+                loading="lazy"
+              />
+            </a>
+          </div>
         </FadeIn>
       </div>
     </div>
