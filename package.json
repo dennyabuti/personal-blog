@@ -1,6 +1,7 @@
 {
   "name": "dennis-blog",
   "version": "0.1.0",
+  "homepage": "https://dennisnyabuti.com",
   "engines": {
     "node": ">=8"
   },

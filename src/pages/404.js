@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Button } from '../components/ui/button';
 import { Home, Search } from 'lucide-react';
 import { PageTransition } from '../components/PageTransition';
+import Seo from '../components/Seo';
 
 function NotFound() {
   return (
     <>
-      <Helmet>
-        <title>404 - Page Not Found | Dennis M. Nyabuti</title>
-        <meta name="description" content="The page you're looking for doesn't exist." />
-      </Helmet>
+      <Seo
+        title="404 | Dennis M. Nyabuti"
+        description="The page you're looking for doesn't exist."
+        path="/404"
+        noindex
+      />
 
       <PageTransition>
         <div className="max-w-2xl mx-auto text-center space-y-8 py-20">
@@ -66,10 +68,10 @@ function NotFound() {
               <Link to="/about">About</Link>
             </Button>
             <Button variant="link" asChild>
-              <Link to="/projects">Projects</Link>
+              <Link to="/posts">Blog Posts</Link>
             </Button>
             <Button variant="link" asChild>
-              <Link to="/posts">Blog Posts</Link>
+              <Link to="/">Home</Link>
             </Button>
           </div>
         </div>

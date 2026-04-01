@@ -1,5 +1,6 @@
 export const REACT_APP_WORD_PRESS_API = process.env.REACT_APP_WORD_PRESS_API;
 export const REACT_APP_OWNER = process.env.REACT_APP_OWNER;
+export const REACT_APP_SITE_URL = process.env.REACT_APP_SITE_URL;
 export const REACT_APP_SOCIAL_FACEBOOK = process.env.REACT_APP_SOCIAL_FACEBOOK;
 export const REACT_APP_SOCIAL_GITHUB = process.env.REACT_APP_SOCIAL_GITHUB;
 export const REACT_APP_SOCIAL_LINKEDIN = process.env.REACT_APP_SOCIAL_LINKEDIN;

@@ -1,34 +1,48 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Github, Linkedin, Facebook, Twitter } from 'lucide-react';
 import { PageTransition, FadeIn } from '../components/PageTransition';
+import Seo from '../components/Seo';
 import { useTheme } from '../contexts/ThemeContext';
 
 import avatarImage from '../assets/avator_1.jpeg';
-import { REACT_APP_SOCIAL_FACEBOOK, REACT_APP_SOCIAL_GITHUB, REACT_APP_SOCIAL_LINKEDIN, REACT_APP_SOCIAL_TWITTER} from '../env';
+import {
+  REACT_APP_OWNER,
+  REACT_APP_SITE_URL,
+  REACT_APP_SOCIAL_FACEBOOK,
+  REACT_APP_SOCIAL_GITHUB,
+  REACT_APP_SOCIAL_LINKEDIN,
+  REACT_APP_SOCIAL_TWITTER,
+} from '../env';
 
 function Home() {
   const { theme } = useTheme();
   const peerlistTheme = theme === 'dark' ? 'dark' : 'light';
+  const siteUrl = REACT_APP_SITE_URL || 'https://dennisnyabuti.com';
+  const profileSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: REACT_APP_OWNER || 'Dennis M. Nyabuti',
+    url: siteUrl,
+    image: `${siteUrl}${avatarImage}`,
+    jobTitle: 'Senior Software Engineer',
+    sameAs: [
+      REACT_APP_SOCIAL_LINKEDIN,
+      REACT_APP_SOCIAL_GITHUB,
+      REACT_APP_SOCIAL_TWITTER,
+      REACT_APP_SOCIAL_FACEBOOK,
+    ].filter(Boolean),
+  };
 
   return (
     <>
-      <Helmet>
-        <title>Dennis M. Nyabuti | Senior Software Engineer</title>
-        <meta name="description" content="Senior Software Engineer specializing in full-stack development, cloud architecture, and modern web technologies. Check out my blog, projects, and experience." />
-        <meta name="keywords" content="software engineer, full-stack developer, cloud architecture, React, Node.js, AWS, DevOps" />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Dennis M. Nyabuti | Senior Software Engineer" />
-        <meta property="og:description" content="Senior Software Engineer specializing in full-stack development, cloud architecture, and modern web technologies." />
-        <meta property="og:image" content={avatarImage} />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="Dennis M. Nyabuti | Senior Software Engineer" />
-        <meta name="twitter:description" content="Senior Software Engineer specializing in full-stack development, cloud architecture, and modern web technologies." />
-      </Helmet>
+      <Seo
+        title="Dennis M. Nyabuti | Senior Software Engineer"
+        description="Senior Software Engineer specializing in full-stack development, cloud architecture, AI integrations, and modern web technologies. Explore my blog, experience, and current work."
+        path="/"
+        image={avatarImage}
+        keywords="Dennis Nyabuti, software engineer, full-stack developer, cloud architecture, React, Node.js, AWS, DevOps, AI integration"
+        schema={profileSchema}
+      />
       
       <PageTransition>
         <div className="relative min-h-[75vh] flex items-center justify-center">

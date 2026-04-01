@@ -1,8 +1,9 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { Calendar, Briefcase, Code, Award } from 'lucide-react';import { PageTransition, StaggerContainer, StaggerItem } from '../components/PageTransition';
+import Seo from '../components/Seo';
+import { REACT_APP_OWNER, REACT_APP_SITE_URL } from '../env';
 const skills = [
   'JavaScript', 'Java', 'TypeScript', 'React', 'React Native', 'Node.js',
   'NoSQL', 'MongoDB', 'PostgreSQL', 'Redis', 'AWS', 'Linux',
@@ -78,12 +79,29 @@ const education = [
 ];
 
 function About() {
+  const siteUrl = REACT_APP_SITE_URL || 'https://dennisnyabuti.com';
+  const profileSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: REACT_APP_OWNER || 'Dennis M. Nyabuti',
+    url: `${siteUrl}/about`,
+    jobTitle: 'Senior Software Engineer',
+    alumniOf: education.map((item) => ({
+      '@type': 'EducationalOrganization',
+      name: item.school,
+    })),
+    knowsAbout: skills,
+  };
+
   return (
     <>
-      <Helmet>
-        <title>About | Dennis M. Nyabuti</title>
-        <meta name="description" content="Senior Software Engineer specializing in scalable web applications and cloud architecture." />
-      </Helmet>
+      <Seo
+        title="About | Dennis M. Nyabuti"
+        description="Learn more about Dennis M. Nyabuti, a Senior Software Engineer focused on scalable products, cloud systems, AI-enabled workflows, and technology leadership."
+        path="/about"
+        keywords="about Dennis Nyabuti, senior software engineer, engineering leadership, cloud architecture, AI workflows"
+        schema={profileSchema}
+      />
 
       <PageTransition>
         <div className="max-w-4xl mx-auto space-y-8">

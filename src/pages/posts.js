@@ -10,6 +10,7 @@ import { Badge } from '../components/ui/badge';
 import { Input } from '../components/ui/input';
 import { Skeleton } from '../components/ui/skeleton';
 import { PageTransition } from '../components/PageTransition';
+import Seo from '../components/Seo';
 import SocialShare from '../components/SocialShare';
 import { requestPosts } from '../actions/post';
 import { transform } from '../services/post.js';
@@ -70,6 +71,13 @@ function Posts({ posts, fetchPosts }) {
   };
 
   const filteredPosts = filterPosts(sortPostsByDate(posts), searchQuery);
+  const postsSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Blog Posts',
+    url: 'https://dennisnyabuti.com/posts',
+    description: 'Technical blog posts about software engineering, cloud architecture, AI integrations, and modern development practices.',
+  };
 
   if (isLoading && posts.length === 0) {
     return (
@@ -93,10 +101,13 @@ function Posts({ posts, fetchPosts }) {
   if (posts.length === 0 && !isLoading) {
     return (
       <>
-        <Helmet>
-          <title>Blog Posts | Dennis M. Nyabuti</title>
-          <meta name="description" content="Technical blog posts about software engineering, cloud architecture, and modern development practices." />
-        </Helmet>
+        <Seo
+          title="Blog Posts | Dennis M. Nyabuti"
+          description="Technical blog posts about software engineering, cloud architecture, AI integrations, and modern development practices."
+          path="/posts"
+          keywords="software engineering blog, cloud architecture blog, React blog, AI engineering posts"
+          schema={postsSchema}
+        />
         <div className="max-w-4xl mx-auto">
           <Card>
             <CardContent className="py-12 text-center">
@@ -110,10 +121,13 @@ function Posts({ posts, fetchPosts }) {
   
   return (
     <>
-      <Helmet>
-        <title>Blog Posts | Dennis M. Nyabuti</title>
-        <meta name="description" content="Technical blog posts about software engineering, cloud architecture, and modern development practices." />
-      </Helmet>
+      <Seo
+        title="Blog Posts | Dennis M. Nyabuti"
+        description="Technical blog posts about software engineering, cloud architecture, AI integrations, and modern development practices."
+        path="/posts"
+        keywords="software engineering blog, cloud architecture blog, React blog, AI engineering posts"
+        schema={postsSchema}
+      />
 
       <PageTransition>
         <div className="max-w-4xl mx-auto space-y-6">
